@@ -2,7 +2,7 @@
 
 We will be running a container from this CLI and executing all subsequent commands from within the shell running inside this container. Now, there is a little problem we need to overcome. This container will not have a Docker client installed. But we will also run some Docker commands, so we have to create a custom image derived from the preceding image, which contains a Docker client. The Dockerfile that's needed to do so can be found in the ~/fod/ch18 folder and has this content:
 
-FROM mcr.microsoft.com/azure-cli:latest
+FROM mcr.microsoft.com/azure-cli:latest<br>
 RUN apk update && apk add docker
 
 On line 2, we are just using the Alpine package manager, apk, to install Docker. We can then use Docker Compose to build and run this custom image. The corresponding docker-compose.yml file looks like this:
